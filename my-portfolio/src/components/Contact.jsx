@@ -1,109 +1,70 @@
-// src/components/Contact.jsx
 import React, { useState } from "react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can integrate with EmailJS, Formspree, or backend
-    console.log(formData);
+    console.log(form);
     setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
+    setForm({ name: "", email: "", message: "" });
   };
 
   return (
-    <section
-      id="contact"
-      className="py-20 px-6 md:px-16 bg-gray-900 text-white"
-    >
-      <h2 className="text-4xl font-bold text-center mb-12">Contact Me</h2>
-
-      <div className="max-w-3xl mx-auto flex flex-col md:flex-row gap-10">
+    <section id="contact" className="contact">
+      <h2>Contact Me</h2>
+      <div className="contact-container">
         {/* Contact Info */}
-        <div className="flex-1 flex flex-col gap-6">
-          <h3 className="text-2xl font-semibold">Get in touch</h3>
-          <p className="text-gray-300">
-            I’m open to job offers, freelance projects, or collaborations.
-          </p>
-          <div className="flex flex-col gap-3 text-gray-300">
-            <a
-              href="mailto:phenilinejerono@example.com"
-              className="hover:text-purple-400 transition"
-            >
-              📧 phenilinejerono@example.com
-            </a>
-            <a
-              href="https://github.com/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-purple-400 transition"
-            >
-              💻 GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-purple-400 transition"
-            >
-              🔗 LinkedIn
-            </a>
-          </div>
+        <div className="contact-info">
+          <a href="mailto:phenilinejer@gmail.com">Email</a>
+          <a
+            href="https://github.com/Pheniline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            href="www.linkedin.com/in/pheniline-jerono"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
         </div>
 
         {/* Contact Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="flex-1 flex flex-col gap-4 bg-gray-800 p-6 rounded-xl shadow-md"
-        >
-          {submitted && (
-            <p className="text-green-400 font-semibold text-center">
-              Message sent! I’ll get back to you soon.
-            </p>
-          )}
+        <form className="contact-form" onSubmit={handleSubmit}>
+          {submitted && <p className="submitted-msg">Message sent!</p>}
           <input
             type="text"
             name="name"
-            value={formData.name}
-            onChange={handleChange}
+            value={form.name}
             placeholder="Your Name"
+            onChange={handleChange}
             required
-            className="p-3 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
           <input
             type="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={form.email}
             placeholder="Your Email"
+            onChange={handleChange}
             required
-            className="p-3 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
           <textarea
             name="message"
-            value={formData.message}
-            onChange={handleChange}
+            value={form.message}
             placeholder="Your Message"
             rows="5"
+            onChange={handleChange}
             required
-            className="p-3 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
-          <button
-            type="submit"
-            className="mt-2 px-6 py-3 bg-purple-600 hover:bg-purple-500 rounded font-semibold transition"
-          >
-            Send Message
-          </button>
+          <button type="submit">Send Message</button>
         </form>
       </div>
     </section>

@@ -2,15 +2,15 @@ import React from "react";
 
 const projectsData = [
   {
-    title: "Task Manager",
+    title: "Notepad",
     description: "A full-stack CRUD app to manage daily tasks.",
     tech: ["React", "Node.js", "PostgreSQL"],
-    github: "https://github.com/yourusername/task-manager",
-    live: "https://task-manager.vercel.app",
-    image: "/images/task-manager.png",
+    github: "https://github.com/Pheniline/Notepad",
+    live: "",
+    image: "",
   },
   {
-    title: "Expense Tracker",
+    title: "Weather App",
     description: "Track daily expenses with charts and categories.",
     tech: ["React", "JavaScript", "Tailwind CSS"],
     github: "https://github.com/yourusername/expense-tracker",
@@ -21,9 +21,9 @@ const projectsData = [
     title: "Portfolio Website",
     description: "My personal portfolio to showcase projects and skills.",
     tech: ["React", "CSS", "Axios"],
-    github: "https://github.com/yourusername/portfolio",
-    live: "https://your-portfolio.vercel.app",
-    image: "/images/portfolio.png",
+    github: "https://github.com/Pheniline/Portfolio",
+    live: "",
+    image: "",
   },
 ];
 
