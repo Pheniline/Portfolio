@@ -773,3 +773,69 @@ footer {
 .footer p {
   margin: 0.3rem 0;
 }
+/* Skills Section */
+.skills {
+  padding: 6rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.skills h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #fff;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* Skill Card (like Project card) */
+.skill-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  width: 140px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.skill-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.75rem;
+}
+
+.skill-card h4 {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills h2 {
+    font-size: 2rem;
+  }
+  .skill-card {
+    width: 120px;
+    padding: 1rem;
+  }
+  .skill-card img {
+    width: 40px;
+    height: 40px;
+  }
+}

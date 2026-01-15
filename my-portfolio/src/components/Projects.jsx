@@ -3,19 +3,17 @@ import React from "react";
 const projectsData = [
   {
     title: "Notepad",
-    description: "A full-stack CRUD app to manage daily tasks.",
+    description: "A full-stack CRUD app to record daily notes.",
     tech: ["React", "Node.js", "PostgreSQL"],
     github: "https://github.com/Pheniline/Notepad",
     live: "",
-    image: "",
   },
   {
     title: "Weather App",
-    description: "Track daily expenses with charts and categories.",
+    description: "A website used to check the weather in different cities.",
     tech: ["React", "JavaScript", "Tailwind CSS"],
-    github: "https://github.com/yourusername/expense-tracker",
-    live: "https://expense-tracker.vercel.app",
-    image: "/images/expense-tracker.png",
+    github: "https://github.com/Pheniline/Weather-App",
+    live: "",
   },
   {
     title: "Portfolio Website",
@@ -34,7 +32,6 @@ const Projects = () => {
       <div className="projects-grid">
         {projectsData.map((project) => (
           <div key={project.title} className="project-card">
-            <img src={project.image} alt={project.title} />
             <div className="project-info">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
