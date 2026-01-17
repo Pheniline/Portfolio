@@ -16,6 +16,66 @@ body {
 html {
   scroll-behavior: smooth;
 }
+/* Page load intro animation */
+.page-enter {
+  animation: pageFadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero,
+.about,
+.skills,
+.projects,
+.contact,
+.footer {
+  animation: sectionFade 0.8s ease forwards;
+  opacity: 0;
+}
+
+.hero {
+  animation-delay: 0.2s;
+}
+
+.about {
+  animation-delay: 0.4s;
+}
+
+.skills {
+  animation-delay: 0.6s;
+}
+
+.projects {
+  animation-delay: 0.8s;
+}
+
+.contact {
+  animation-delay: 1s;
+}
+
+.footer {
+  animation-delay: 1.2s;
+}
+
+@keyframes sectionFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* Navbar */
 .navbar {
@@ -110,6 +170,19 @@ section h2 {
 }
 
 /* Skills */
+/* Skills animation base state */
+.skills {
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.skills-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -122,7 +195,9 @@ section h2 {
   padding: 1rem;
   border-radius: 1rem;
   text-align: center;
-  transition: transform 0.3s, background 0.3s;
+  transition:
+    transform 0.3s,
+    background 0.3s;
 }
 
 .skill-card:hover {
@@ -130,10 +205,19 @@ section h2 {
   background: #3b3b3b;
 }
 
-.skill-card img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 0.5rem;
+.skill-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease,
+    box-shadow 0.3s ease;
+}
+
+/* When skills section is visible */
+.skills-visible .skill-card {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Projects */
@@ -261,11 +345,37 @@ section h2 {
 }
 
 /* Footer */
-footer {
+/* Footer */
+.footer {
+  background: rgba(26, 26, 26, 0.95);
+  padding: 2.5rem 1rem;
   text-align: center;
-  padding: 2rem;
-  color: #777;
+  color: #aaa;
   border-top: 1px solid #333;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-icons a {
+  color: #aaa;
+  font-size: 1.5rem;
+  transition:
+    color 0.3s,
+    transform 0.3s;
+}
+
+.footer-icons a:hover {
+  color: #7c3aed;
+  transform: translateY(-3px);
+}
+
+.footer p {
+  margin: 0.3rem 0;
   font-size: 0.9rem;
 }
 
@@ -287,8 +397,10 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background 0.3s, padding 0.3s;
-  background: transparent;
+  transition:
+    background 0.3s,
+    padding 0.3s;
+  background: rgba(26, 26, 26, 0.95);
 }
 
 .navbar-scrolled {
@@ -329,7 +441,9 @@ footer {
   margin-top: 5px;
   right: 0;
   background: #7c3aed; /* Purple underline */
-  transition: width 0.3s ease, right 0.3s ease;
+  transition:
+    width 0.3s ease,
+    right 0.3s ease;
 }
 
 .navbar .nav-links a:hover::after {
@@ -517,7 +631,10 @@ footer {
   border-radius: 1rem;
   text-align: center;
   width: 120px;
-  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    background 0.3s,
+    box-shadow 0.3s;
   cursor: default;
 }
 
@@ -582,7 +699,9 @@ footer {
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .project-card:hover {
@@ -809,7 +928,9 @@ footer {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   /* Smooth animations */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .skill-card:hover {

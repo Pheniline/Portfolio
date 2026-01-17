@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const skillsData = [
   { name: "React", color: "#61dafb" },
@@ -18,15 +18,41 @@ const skillsData = [
 ];
 
 const Skills = () => {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+        }
+      },
+      { threshold: 0.3 },
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="skills" className="skills">
+    <section
+      id="skills"
+      ref={sectionRef}
+      className={`skills ${visible ? "skills-visible" : ""}`}
+    >
       <h2>Skills</h2>
+
       <div className="skills-grid">
-        {skillsData.map((skill) => (
+        {skillsData.map((skill, index) => (
           <div
             key={skill.name}
             className="skill-card"
-            style={{ backgroundColor: skill.color }}
+            style={{
+              backgroundColor: skill.color,
+              transitionDelay: `${index * 0.1}s`,
+            }}
           >
             <h4>{skill.name}</h4>
           </div>

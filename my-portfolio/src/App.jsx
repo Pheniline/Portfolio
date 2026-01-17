@@ -17,13 +17,14 @@ function App() {
     AOS.init({ duration: 800, once: true });
   }, []);
   return (
-    <div className="App bg-gray-900 text-white">
+    <div className="App page-enter bg-gray-900 text-white">
       <Navbar />
       <Hero />
       <About />
       <Skills />
       <Projects />
       <Contact />
+      <Footer />
 
       {/* Next: Contact Section */}
     </div>

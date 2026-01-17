@@ -7,8 +7,11 @@ const About = () => {
       <p>
         I’m a full-stack developer passionate about building web applications
         that solve real-world problems. I work with{" "}
-        <span className="accent">React, Node.js, PostgreSQL, Python,</span> and
-        modern APIs to create scalable and maintainable systems.
+        <span className="accent">
+          React, Javascipt, Express, Axios, MoongoseDB, Node.js, PostgreSQL,
+          Python,
+        </span>{" "}
+        and modern APIs to create scalable and maintainable systems.
       </p>
       <p>
         I actively participate in hackathons and projects, constantly improving
